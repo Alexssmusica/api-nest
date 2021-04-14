@@ -37,4 +37,4 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 # GraphQL
-src/schema.gql
+src/graphql/schema.gql

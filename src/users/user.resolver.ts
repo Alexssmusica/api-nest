@@ -28,6 +28,11 @@ export class UserResolver {
     }
 
     @Query(() => [User])
+    async usersByLikeEmail(@Args('email') email: string): Promise<User[]> {
+        return this.userService.getUsersByLikeEmail(email);
+    }
+
+    @Query(() => [User])
     async users(): Promise<User[]> {
         return await this.userService.findAllUsers();
     }

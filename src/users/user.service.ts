@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Like, Repository } from 'typeorm';
 
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
@@ -32,6 +32,15 @@ export class UserService {
             throw new NotFoundException('User not found');
         }
         return user;
+    }
+
+    async getUsersByLikeEmail(email: string): Promise<User[]> {
+        const users = await this.userRepository.find({ email: Like(`%${email}%`) });
+
+        if (users.length == 0) {
+            throw new NotFoundException('Users not found');
+        }
+        return users;
     }
 
     async findAllUsers(): Promise<User[]> {
