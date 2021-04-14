@@ -5,6 +5,9 @@ module.exports = {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
+    ssl: {
+        rejectUnauthorized: false
+    },
     entities: ['dist/**/*.entity{.ts,.js}'],
     synchronize: process.env.DB_SYNC == 'true'
 };

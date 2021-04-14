@@ -5,19 +5,19 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 @ObjectType()
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn('uuid')
-  @Field(() => ID)
-  id: string;
+    @PrimaryGeneratedColumn('uuid')
+    @Field(() => ID)
+    id: string;
 
-  @Column()
-  name: string;
+    @Column()
+    name: string;
 
-  @Column()
-  email: string;
+    @Column()
+    email: string;
 
-  @Column({
-    transformer: hashPasswordTransform
-  })
-  @HideField()
-  password: string;
+    @Column({
+        transformer: hashPasswordTransform
+    })
+    @HideField()
+    password: string;
 }
