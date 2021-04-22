@@ -22,4 +22,9 @@ export class UpdateUserInput {
     @IsString()
     @IsNotEmpty({ message: 'Password is required' })
     password?: string;
+
+    @IsOptional()
+    @IsString()
+    @IsNotEmpty({ message: 'Invalid characters' })
+    typeId?: string;
 }

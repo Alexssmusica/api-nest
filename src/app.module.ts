@@ -7,6 +7,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './users/user.module';
 import { AuthModule } from './auth/auth.module';
+import { TypeModule } from './type/type.module';
 
 @Module({
     imports: [
@@ -16,7 +17,8 @@ import { AuthModule } from './auth/auth.module';
             context: ({ req }) => ({ req })
         }),
         UserModule,
-        AuthModule
+        AuthModule,
+        TypeModule
     ],
     controllers: [AppController],
     providers: [AppService]
